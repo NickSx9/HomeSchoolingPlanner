@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.sid1722289.schoolhomeorganiser.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_lesson"
+        android:name="com.sid1722289.schoolhomeorganiser.ui.lesson.LessonFragment"
+        android:label="@string/menu_lesson"
+        tools:layout="@layout/fragment_gallery" />
+
+    <fragment
+        android:id="@+id/nav_mealPlanner"
+        android:name="com.sid1722289.schoolhomeorganiser.ui.mealplanner.MealPlannerFragment"
+        android:label="@string/menu_meal_planner"
+        tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/nav_schedule"
+        android:name="com.sid1722289.schoolhomeorganiser.ui.schedule.ScheduleFragment"
+        android:label="@string/menu_schedule"
+        tools:layout="@layout/fragment_schedule" />
+
+    <fragment
+        android:id="@+id/nav_links"
+        android:name="com.sid1722289.schoolhomeorganiser.ui.educatelinks.EducateLinksFragment"
+        android:label="@string/menu_external_links"
+        tools:layout="@layout/fragment_educatelinks" />
+
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="com.sid1722289.schoolhomeorganiser.ui.settings.SettingsFragment"
+        android:label="@string/menu_setting"
+        tools:layout="@layout/fragment_settings" />
+
+</navigation>
