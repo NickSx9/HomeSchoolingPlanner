@@ -27,6 +27,11 @@
 
     <string name="EducationLinks">Educational Links</string>
 
+    <string name="saveButton">Save</string>
+
+
+
+
     <string-array name="settings_day">
         <item>Monday</item>
         <item>Tuesday</item>
@@ -34,6 +39,17 @@
         <item>Thursday</item>
         <item>Friday</item>
     </string-array>
+
+    <string-array name="settings_lesson">
+        <item>English - Reading</item>
+        <item>English - Writing</item>
+        <item>Maths</item>
+        <item>Geography</item>
+        <item>Science</item>
+        <item>PE</item>
+        <item>Break</item>
+    </string-array>
+
     <string-array name="settings_start_time">
         <item>9:00</item>
         <item>9:30</item>
@@ -78,5 +94,9 @@
     <string name="container_des" translation_description="container for lessons.">Lesson Container</string>
 
     <string name="demoText">is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
+    <string name="dayLabel">Day:</string>
+    <string name="label_lesson">Lesson:</string>
+    <string name="label_startTime">Start time:</string>
+    <string name="label_endTime">Lesson end:</string>
 
 </resources>

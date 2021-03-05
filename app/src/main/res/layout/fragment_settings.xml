@@ -9,7 +9,7 @@
     tools:context=".ui.settings.SettingsFragment">
 
     <TextView
-        android:id="@+id/text_home"
+        android:id="@+id/text_Home_Settings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -35,23 +35,127 @@
         android:id="@+id/tilebackground"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="16dp"
-        android:paddingBottom="16dp"
         android:background="@drawable/home_text_background"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_home">
+        app:layout_constraintTop_toBottomOf="@+id/text_Home_Settings">
 
-        <Spinner
-            android:id="@+id/daySpinner"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/textSettings_Title"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:paddingBottom="10dp"
+            android:text="@string/menu_setting"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_labelDay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:layout_marginTop="30dp"
+            android:text="@string/dayLabel"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/daySpinner"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textSettings_Title" />
+
+        <Spinner
+            android:id="@+id/daySpinner"
+            android:background="@drawable/dropdown_settings"
+            android:layout_marginRight="10dp"
+            android:layout_width="210dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textSettings_Title" />
+
+        <Spinner
+            android:id="@+id/lessonSpinner"
+            android:background="@drawable/dropdown_settings"
+            android:layout_marginRight="10dp"
+            android:layout_width="210dp"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/daySpinner" />
+
+        <Spinner
+            android:id="@+id/startTimeSpinner"
+            android:background="@drawable/dropdown_settings"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="210dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lessonSpinner" />
+
+        <Spinner
+            android:id="@+id/endTimeSpinner"
+            android:background="@drawable/dropdown_settings"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="210dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/startTimeSpinner" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:text="@string/saveButton"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/endTimeSpinner" />
+
+        <TextView
+            android:id="@+id/text_LabelLesson"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:layout_marginTop="35dp"
+            android:textSize="20sp"
+            android:text="@string/label_lesson"
+            app:layout_constraintEnd_toStartOf="@+id/lessonSpinner"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_labelDay" />
+
+        <TextView
+            android:id="@+id/text_LabelStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_marginTop="28dp"
+            android:text="@string/label_startTime"
+            app:layout_constraintEnd_toStartOf="@+id/startTimeSpinner"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_LabelLesson" />
+
+        <TextView
+            android:id="@+id/text_LabelEndTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_marginTop="30dp"
+            android:text="@string/label_endTime"
+            app:layout_constraintEnd_toStartOf="@+id/endTimeSpinner"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_LabelStart" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
