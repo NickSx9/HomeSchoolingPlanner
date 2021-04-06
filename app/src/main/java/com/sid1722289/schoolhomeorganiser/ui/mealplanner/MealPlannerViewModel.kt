@@ -5,6 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class MealPlannerViewModel : ViewModel() {
+
+
+
     private val _text = MutableLiveData<String>().apply {
         value = "Home Schooling"
     }

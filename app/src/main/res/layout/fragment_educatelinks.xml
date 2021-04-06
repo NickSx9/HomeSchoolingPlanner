@@ -56,18 +56,189 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/byteSize"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="@string/bytesize"
-            android:textColor="#36F48C"
-            android:textSize="18sp"
-            android:textStyle="bold"
+
+
+        <GridLayout
+            android:id="@+id/link_grid"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:columnCount="2"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+            app:layout_constraintTop_toBottomOf="@+id/textView3"
+            android:layout_marginTop="10dp" >
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/tile_id1"
+                    app:layout_column="0"
+                    app:layout_row="0"
+                    android:background="@drawable/lesson_card"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill"
+                    android:layout_columnWeight="1"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp">
+
+
+                    <ImageView
+                        android:id="@+id/meal_imageOne"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_marginBottom="10dp"
+                        android:paddingStart="10dp"
+                        android:paddingTop="10dp"
+                        android:paddingEnd="10dp"
+                        android:src="@drawable/bbc_icon"
+                        app:layout_constraintBottom_toTopOf="@+id/MealNameOne"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/MealNameOne"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/BiteSize"
+                        android:textColor="#36F48C"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/meal_imageOne" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/tile_id2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/lesson_card"
+                android:layout_gravity="fill"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp">
+
+                <ImageView
+                    android:id="@+id/tile_image_2"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:paddingStart="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="10dp"
+                    android:src="@drawable/twinkl_icon"
+                    app:layout_constraintBottom_toTopOf="@+id/twinkl_title"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/twinkl_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Twinkl"
+                    android:textColor="#36F48C"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tile_image_2"
+                    android:layout_marginBottom="10dp"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/tile_id3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/lesson_card"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="fill"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp">
+
+                <ImageView
+                    android:id="@+id/tile_image_3"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_marginBottom="5dp"
+                    android:paddingStart="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="10dp"
+                    android:src="@drawable/mytutor_icon"
+                    app:layout_constraintBottom_toTopOf="@+id/mytutor_tile"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:contentDescription="TODO" />
+
+                <TextView
+                    android:id="@+id/mytutor_tile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/MyTutor"
+                    android:textColor="#36F48C"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tile_image_3"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="5dp"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/tile_id4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/lesson_card"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="fill"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp">
+
+                <ImageView
+                    android:id="@+id/tile_image_4"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_marginBottom="8dp"
+                    android:paddingStart="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="10dp"
+                    android:src="@drawable/ted_ed_icon"
+                    app:layout_constraintBottom_toTopOf="@+id/tedEd_title"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tedEd_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/MyTutor"
+                    android:textColor="#36F48C"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tile_image_4"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="5dp"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </GridLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

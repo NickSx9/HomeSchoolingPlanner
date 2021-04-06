@@ -8,10 +8,11 @@
     <string name="action_settings">Settings</string>
 
     <string name="menu_home">Home</string>
-    <string name="menu_lesson">Lesson</string>
+    <string name="menu_lesson">Lesson Notes</string>
     <string name="menu_meal_planner">Meal Planner</string>
     <string name="menu_schedule">Schedule</string>
     <string name="menu_external_links">Educational Links</string>
+    <string name="menu_addLesson">Add Lesson</string>
     <string name="menu_setting">Settings</string>
 
     //
@@ -29,10 +30,18 @@
 
     <string name="saveButton">Save</string>
 
+    <string name="Twinkl">Twinkl</string>
+    <string name="MyTutor">My Tutor</string>
+    <string name="TedEd">TED Ed</string>
+    <string name="BiteSize">BBC BiteSize</string>
+    <string name="Worksheet">Worksheetfun</string>
+    <string name="school">School Run</string>
 
+    <string name="addLessonTitle">Add a Lesson</string>
 
 
     <string-array name="settings_day">
+        <item>- Select Day -</item>
         <item>Monday</item>
         <item>Tuesday</item>
         <item>Wednesday</item>
@@ -52,51 +61,95 @@
 
     <string-array name="settings_start_time">
         <item>9:00</item>
-        <item>9:30</item>
         <item>10:00</item>
-        <item>10:30</item>
         <item>11:00</item>
-        <item>11:30</item>
         <item>12:00</item>
-        <item>12:30</item>
         <item>13:00</item>
-        <item>13:30</item>
         <item>14:00</item>
-        <item>14:30</item>
         <item>15:00</item>
-        <item>15:30</item>
         <item>16:00</item>
-        <item>16:30</item>
-        <item>17:00</item>
     </string-array>
-    <string-array name="settings_finish_time">
-        <item>9:30</item>
+
+    <string-array name="settings_break_time">
+        <item>10:00 - 11:00</item>
+        <item>11:00 - 12:00</item>
+        <item>12:00 - 13:00</item>
+        <item>13:00 - 14:00</item>
+        <item>14:00 - 15:00</item>
+        <item>15:00 - 16:00</item>
+        <item>16:00 - 17:00</item>
+    </string-array>
+
+    <string-array name="settings_finish_time_one">
         <item>10:00</item>
-        <item>10:30</item>
         <item>11:00</item>
-        <item>11:30</item>
         <item>12:00</item>
-        <item>12:30</item>
         <item>13:00</item>
-        <item>13:30</item>
         <item>14:00</item>
-        <item>14:30</item>
         <item>15:00</item>
-        <item>15:30</item>
         <item>16:00</item>
-        <item>16:30</item>
         <item>17:00</item>
     </string-array>
 
+    <string-array name="settings_finish_time_two">
+        <item>11:00</item>
+        <item>12:00</item>
+        <item>13:00</item>
+        <item>14:00</item>
+        <item>15:00</item>
+        <item>16:00</item>
+        <item>17:00</item>
+    </string-array>
 
+    <string-array name="settings_finish_time_three">
+        <item>12:00</item>
+        <item>13:00</item>
+        <item>14:00</item>
+        <item>15:00</item>
+        <item>16:00</item>
+        <item>17:00</item>
+    </string-array>
 
-    <string name="bytesize">www.bbc.co.uk/bitesize</string>
+    <string-array name="settings_finish_time_four">
+        <item>13:00</item>
+        <item>14:00</item>
+        <item>15:00</item>
+        <item>16:00</item>
+        <item>17:00</item>
+    </string-array>
+
+    <string-array name="settings_finish_time_five">
+        <item>14:00</item>
+        <item>15:00</item>
+        <item>16:00</item>
+        <item>17:00</item>
+    </string-array>
+
+    <string-array name="settings_finish_time_six">
+        <item>15:00</item>
+        <item>16:00</item>
+        <item>17:00</item>
+    </string-array>
+
+    <string-array name="settings_finish_time_seven">
+        <item>16:00</item>
+        <item>17:00</item>
+    </string-array>
+
+    <string-array name="settings_finish_time_eight">
+        <item>17:00</item>
+    </string-array>
+
     <string name="container_des" translation_description="container for lessons.">Lesson Container</string>
-
     <string name="demoText">is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
     <string name="dayLabel">Day:</string>
     <string name="label_lesson">Lesson:</string>
-    <string name="label_startTime">Start time:</string>
-    <string name="label_endTime">Lesson end:</string>
+    <string name="label_startTime">Start Time:</string>
+    <string name="label_endTime">End Time:</string>
+    <string name="label_breakTime">Break Time:</string>
+
+    <string name="education_text">A collection of educational links have been put together and listed below.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

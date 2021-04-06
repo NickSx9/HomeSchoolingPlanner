@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/side_nav_bar"
+    android:background="@color/secondaryColor"
     tools:context=".ui.settings.SettingsFragment">
 
     <TextView
@@ -25,11 +25,12 @@
         android:id="@+id/imageView2"
         android:layout_width="120dp"
         android:layout_height="107dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/CompanyLogo"
         android:src="@drawable/school"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/CompanyLogo" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/tilebackground"
@@ -82,34 +83,34 @@
             app:layout_constraintTop_toBottomOf="@+id/textSettings_Title" />
 
         <Spinner
-            android:id="@+id/lessonSpinner"
-            android:background="@drawable/dropdown_settings"
-            android:layout_marginRight="10dp"
+            android:id="@+id/lessonSelectSpinner"
             android:layout_width="210dp"
-            android:layout_marginTop="10dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/dropdown_settings"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/daySpinner" />
 
         <Spinner
-            android:id="@+id/startTimeSpinner"
+            android:id="@+id/StartTimeSpinner"
             android:background="@drawable/dropdown_settings"
             android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
             android:layout_width="210dp"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lessonSpinner" />
+            app:layout_constraintTop_toBottomOf="@+id/lessonSelectSpinner" />
 
         <Spinner
-            android:id="@+id/endTimeSpinner"
+            android:id="@+id/EndTimeSpinner"
             android:background="@drawable/dropdown_settings"
             android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
             android:layout_width="210dp"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/startTimeSpinner" />
+            app:layout_constraintTop_toBottomOf="@+id/StartTimeSpinner" />
 
         <Button
             android:id="@+id/saveButton"
@@ -120,43 +121,43 @@
             android:text="@string/saveButton"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/endTimeSpinner" />
+            app:layout_constraintTop_toBottomOf="@+id/EndTimeSpinner" />
 
         <TextView
-            android:id="@+id/text_LabelLesson"
+            android:id="@+id/tv_LabelLesson"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
             android:layout_marginTop="35dp"
+            android:text="@string/label_startTime"
+            android:textColor="@color/white"
             android:textSize="20sp"
-            android:text="@string/label_lesson"
-            app:layout_constraintEnd_toStartOf="@+id/lessonSpinner"
+            app:layout_constraintEnd_toStartOf="@+id/lessonSelectSpinner"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_labelDay" />
 
         <TextView
-            android:id="@+id/text_LabelStart"
+            android:id="@+id/tv_StartTimeLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="@string/label_endTime"
             android:textColor="@color/white"
             android:textSize="20sp"
-            android:layout_marginTop="28dp"
-            android:text="@string/label_startTime"
-            app:layout_constraintEnd_toStartOf="@+id/startTimeSpinner"
+            app:layout_constraintEnd_toStartOf="@+id/StartTimeSpinner"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_LabelLesson" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_LabelLesson" />
 
         <TextView
-            android:id="@+id/text_LabelEndTime"
+            android:id="@+id/tv_EndTimeLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="@string/label_breakTime"
             android:textColor="@color/white"
             android:textSize="20sp"
-            android:layout_marginTop="30dp"
-            android:text="@string/label_endTime"
-            app:layout_constraintEnd_toStartOf="@+id/endTimeSpinner"
+            app:layout_constraintEnd_toStartOf="@+id/EndTimeSpinner"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_LabelStart" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_StartTimeLabel" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

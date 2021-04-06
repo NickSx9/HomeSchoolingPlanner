@@ -8,7 +8,9 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.sid1722289.schoolhomeorganiser.R
+import com.sid1722289.schoolhomeorganiser.ui.lessonsettings.LessonSettingsFragment
 
 class HomeFragment : Fragment() {
 

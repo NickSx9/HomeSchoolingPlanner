@@ -18,7 +18,7 @@ import androidx.fragment.app.Fragment
 import com.sid1722289.schoolhomeorganiser.ui.settings.SettingsFragment
 import java.io.File
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), AppNavigator {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
 
@@ -29,17 +29,13 @@ class MainActivity : AppCompatActivity() {
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        val fab: FloatingActionButton = findViewById(R.id.fab)
-        fab.setOnClickListener() {
-            Toast.makeText(this, "Add Lesson Plan", Toast.LENGTH_SHORT).show()
-        }
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
         val navController = findNavController(R.id.nav_host_fragment)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(setOf(
-                R.id.nav_home, R.id.nav_lesson, R.id.nav_mealPlanner, R.id.nav_schedule, R.id.nav_links, R.id.nav_settings ), drawerLayout)
+                R.id.nav_home, R.id.nav_lesson, R.id.nav_mealPlanner, R.id.nav_schedule, R.id.nav_links, R.id.nav_settings, R.id.nav_addLesson), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
@@ -57,5 +53,9 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
+    override fun navigateToLessonSettings() {
+
     }
 }
