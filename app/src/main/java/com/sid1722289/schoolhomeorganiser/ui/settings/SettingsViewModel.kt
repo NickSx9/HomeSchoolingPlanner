@@ -10,6 +10,8 @@ import com.sid1722289.schoolhomeorganiser.database.DayData
 import com.sid1722289.schoolhomeorganiser.database.DayDatabaseDao
 import com.sid1722289.schoolhomeorganiser.database.LessonData
 import com.sid1722289.schoolhomeorganiser.database.LessonDatabaseDao
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 
 class SettingsViewModel(val database: DayDatabaseDao,
@@ -22,23 +24,27 @@ class SettingsViewModel(val database: DayDatabaseDao,
     fun addDayData(day: String, startTime: String, finishTime: String){
         viewModelScope.launch {
             Log.d("SVM - Method", "addDayData")
-            var dayDetails: DayData? = database.get(day)
-            if(dayDetails == null) {
-                Log.d("SVM - dayDetails", "= "+ dayDetails)
-                initializeDatabase()
-                dayDetails = database.getLastDayDetails()
-                if(dayDetails == null)
-                {
-                    Log.d("SVM - dayDetails", "= STILL null")
-                }
-                else
-                {
-                    Log.d("SVM - dayDetails", "lesson name of something from the db " + dayDetails.Day)
-                }
+            addDayDataToDatabase(day, startTime, finishTime).await()
+        }
+        Thread.sleep(300)
+    }
+    private fun addDayDataToDatabase(day: String, startTime: String, finishTime: String) = GlobalScope.async {
+        var dayDetails: DayData? = database.get(day)
+        if(dayDetails == null) {
+            Log.d("SVM - dayDetails", "= $dayDetails")
+            initializeDatabase()
+            dayDetails = database.getLastDayDetails()
+            if(dayDetails == null)
+            {
+                Log.d("SVM - dayDetails", "= STILL null")
             }
-            else{
-                database.updateDay(day, startTime, finishTime)
+            else
+            {
+                Log.d("SVM - dayDetails", "lesson name of something from the db " + dayDetails.Day)
             }
+        }
+        else{
+            database.updateDay(day, startTime, finishTime)
         }
     }
 

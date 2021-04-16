@@ -49,7 +49,7 @@ class LessonFragment : Fragment() {
         val lessonNotes: TextView = root.findViewById(R.id.lessonNotes)
         val backButton: Button = root.findViewById(R.id.backButton)
 
-        readButton.text = "Prime Data"
+        readButton.text = "Read"
         addlessonText.visibility = View.INVISIBLE
         lessonSpinner.visibility = View.INVISIBLE
         addButton.visibility = View.INVISIBLE
@@ -77,19 +77,17 @@ class LessonFragment : Fragment() {
             }
         }
         readButton.setOnClickListener{
-            var note = lessonViewModel.returnNote()
+            var note = lessonViewModel.note(selectedLessonName)
             if(note == "")
             {
-                lessonNotes.visibility = View.INVISIBLE
-                lessonViewModel.note(selectedLessonName)
-                Toast.makeText(activity as Context, "Data has been Primed", Toast.LENGTH_SHORT).show()
-                readButton.text = "Read"
+                lessonNotes.visibility = View.VISIBLE
+                Toast.makeText(activity as Context, "No Record Found", Toast.LENGTH_SHORT).show()
+                lessonNotes.text = "Notes Not Found!"
             }
            else{
                 Toast.makeText(activity as Context, note, Toast.LENGTH_SHORT).show()
                 lessonNotes.visibility = View.VISIBLE
                 lessonNotes.text = note
-                readButton.text = "Prime Data"
                 lessonViewModel.clearNoteData()
             }
         }
@@ -136,7 +134,6 @@ class LessonFragment : Fragment() {
             inputBox.visibility = View.INVISIBLE
             lessonNotes.visibility = View.INVISIBLE
             backButton.visibility = View.INVISIBLE
-
             addNotes.visibility = View.VISIBLE
             readNotes.visibility = View.VISIBLE
 

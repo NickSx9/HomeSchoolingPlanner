@@ -73,4 +73,7 @@ interface DayDatabaseDao {
 
     @Query("SELECT * FROM day_data_table ORDER BY dayId DESC LIMIT 1")
     suspend fun getLastDayDetails() : DayData
+
+    @Query("SELECT * FROM day_data_table")
+    suspend fun getAllRecords() : List<DayData>
 }

@@ -100,21 +100,70 @@
                 android:id="@+id/finishTimeSpinner"
                 android:layout_width="210dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/dropdown_settings"
+                android:visibility="invisible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/startTimeSpinner"
-                android:visibility="invisible"/>
+                app:layout_constraintTop_toBottomOf="@+id/startTimeSpinner" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/saveButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
                 android:text="Button"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/finishTimeSpinner"
-                android:visibility="invisible"/>
+                app:layout_constraintTop_toBottomOf="@+id/finishTimeSpinner" />
+
+            <TextView
+                android:id="@+id/dayLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="Day"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@+id/daySelectorSpinner"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textSettings_Title"
+                tools:text="Day" />
+
+            <TextView
+                android:id="@+id/lessonLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:text="lesson"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@+id/lessonNameSpinner"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dayLabel" />
+
+            <TextView
+                android:id="@+id/startLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Start"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@+id/startTimeSpinner"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lessonLabel" />
+
+            <TextView
+                android:id="@+id/finishLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Finish"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@+id/finishTimeSpinner"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/startLabel" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -9,6 +9,8 @@ import androidx.lifecycle.viewModelScope
 import com.sid1722289.schoolhomeorganiser.database.LessonData
 import kotlinx.coroutines.launch
 import com.sid1722289.schoolhomeorganiser.database.LessonDatabaseDao
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 
 class LessonViewModel(
@@ -144,20 +146,18 @@ class LessonViewModel(
     {
         return lessonNotes
     }
-    fun note(lesson: String)
+    fun note(lesson: String) : String
     {
-        Log.d("TESTING_READ", "lesson name is "+lesson)
-        viewModelScope.async {
-            lessonNotes = getNotesForLesson(lesson)
+        Log.d("TESTING_READ", "lesson name is $lesson")
+        viewModelScope.launch {
+             getNotesForLesson(lesson).await()
         }
-        Thread.sleep(1000)
-        Log.d("TESTING_READ", "the data is " + lessonNotes)
+        Thread.sleep(500)
+        return  lessonNotes
     }
-    private suspend fun getNotesForLesson(lessonName: String) :String {
-
-            var note: String = database.getNotesForLesson(lessonName)
-            Log.d("TAG", "notes are " + note)
-        return note
+    private fun getNotesForLesson(lessonName: String) = GlobalScope.async{
+            lessonNotes = database.getNotesForLesson(lessonName)
+            Log.d("TAG", "notes are $lessonNotes")
     }
     fun clearNoteData()
     {
