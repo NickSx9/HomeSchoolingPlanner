@@ -77,3 +77,17 @@ interface DayDatabaseDao {
     @Query("SELECT * FROM day_data_table")
     suspend fun getAllRecords() : List<DayData>
 }
+@Dao
+interface LocationDatabaseDao {
+    @Insert
+    suspend fun insert(gpsLocation: GPSLocation)
+
+    @Update
+    suspend fun update(gpsLocation: GPSLocation)
+
+    @Query("DELETE FROM gps_data_table")
+    suspend fun clear()
+
+    @Query("SELECT * FROM gps_data_table ORDER BY gpsId DESC LIMIT 1")
+    suspend fun getGpsLocation() : GPSLocation?
+}

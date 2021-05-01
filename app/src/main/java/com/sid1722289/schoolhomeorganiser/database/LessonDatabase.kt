@@ -89,3 +89,30 @@ abstract class DayDatabase : RoomDatabase() {
         }
     }
 }
+@Database(entities = [GPSLocation::class], version = 4, exportSchema = false)
+abstract  class LocationDatabase: RoomDatabase() {
+    abstract val locationDatabaseDao: LocationDatabaseDao
+    companion object {
+        @Volatile
+        private var INSTANCE: LocationDatabase? = null
+
+        fun getInstance(context: Context): LocationDatabase {
+            synchronized(this){
+                var instance = INSTANCE
+                if(instance == null)
+                {
+                    instance = Room.databaseBuilder(
+                            context.applicationContext,
+                            LocationDatabase::class.java,
+                            "gps_data_table"
+                    )
+                            .fallbackToDestructiveMigration()
+                            .build()
+                    INSTANCE = instance
+                }
+                return instance
+            }
+        }
+    }
+
+}

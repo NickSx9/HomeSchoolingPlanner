@@ -15,13 +15,13 @@ fun formatSchedule(data: List<ScheduleData>, resources: Resources): String {
     sb.apply {
         append(resources.getString(R.string.title))
         data.forEach {
-            append("<br>")
             append(resources.getString(R.string.start_time))
             append("\t${it.LessonStartTime}<br>")
             append(resources.getString(R.string.end_time))
             append("\t${it.LessonFinishTime}<br>")
             append(resources.getString(R.string.lesson))
             append("\t${it.lessonName}<br>")
+            append("======================== <br>")
         }
     }
     Log.d("MADE IT HERE", data.size.toString())

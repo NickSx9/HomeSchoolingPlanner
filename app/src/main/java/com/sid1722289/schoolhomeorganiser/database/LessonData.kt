@@ -55,5 +55,14 @@ data class DayData(
         @ColumnInfo(name = "day_end")
         var DayFinishTime: String = ""
 )
+@Entity(tableName = "gps_data_table")
+data class GPSLocation(
+        @PrimaryKey(autoGenerate = true)
+        var gpsId: Long = 0L,
+        @ColumnInfo(name="longitude")
+        var Longitude: String = "",
+        @ColumnInfo(name="latitude")
+        var Latitude: String = ""
+)
 
 
