@@ -26,40 +26,8 @@ class LessonViewModel(
 
     val text: LiveData<String> = _text
 
-    private suspend fun displayLessonData(): LessonData?
-    {
-      val savedLessonData = database.getLastLessonDetails()
-      if(savedLessonData != null)
-      {
-          return savedLessonData
-      }
-        else{
-            return savedLessonData
-      }
-    }
-    private suspend fun addNotesToDatabase(lessonName: String, note: String)
-    {
-       // database.updateLessonNotes(lessonName, note)
-    }
     private suspend fun insert(lesson: LessonData) {
         database.insert(lesson)
-    }
-
-    fun onStart(lessonName: String, lessonNotes: String){
-        viewModelScope.launch {
-            Log.d("LVM - Method", "onStart")
-            var lessonDetails = database.get(lessonName)
-            if(lessonDetails?.lessonName == null)
-            {
-                Log.d("LVM", "lesson name was empty")
-                initializeDatabase()
-            }else{
-                Log.d("LVM", "lesson notes = " + lessonDetails?.lessonName)
-            }
-            lessonDetails?.lessonName = lessonName
-            lessonDetails?.LessonNotes = lessonNotes
-            //update(lessonDetails)
-        }
     }
 
 
@@ -84,10 +52,6 @@ class LessonViewModel(
                 database.updateLessonNotes(lessonName, lessonNotes)
             }
         }
-    }
-
-    private suspend fun update(lesson: LessonData) {
-        database.update(lesson)
     }
 
     private suspend fun clear() {
@@ -119,33 +83,7 @@ class LessonViewModel(
             insert(peLesson)
         }
     }
-    fun getData(): LessonData? {
-        var data = LessonData()
-        viewModelScope.launch {
-            data = get()
-            Log.d("db check", data.LessonNotes)
-        }
-        return data
-    }
-    private suspend fun get(): LessonData {
-        return database.getLastLessonDetails()
-    }
-    private suspend fun getLessonData(lesson: String): String? {
-        Log.d("TESTING_READ", "inside getLessonData")
-        var data: LessonData? = database.get(lesson)
-        if(data?.LessonNotes != null)
-        {
-            var notes = data.LessonNotes
-            Log.d("TESTING_READ", notes)
-        }
-        Log.d("TESTING_READ", "data should be =  "+data?.LessonNotes)
-        return data?.LessonNotes
-    }
-    //Get data from database
-    fun returnNote() : String
-    {
-        return lessonNotes
-    }
+
     fun note(lesson: String) : String
     {
         Log.d("TESTING_READ", "lesson name is $lesson")
@@ -164,3 +102,65 @@ class LessonViewModel(
         lessonNotes = ""
     }
 }
+/*not used
+*     fun onStart(lessonName: String, lessonNotes: String){
+        viewModelScope.launch {
+            Log.d("LVM - Method", "onStart")
+            var lessonDetails = database.get(lessonName)
+            if(lessonDetails?.lessonName == null)
+            {
+                Log.d("LVM", "lesson name was empty")
+                initializeDatabase()
+            }else{
+                Log.d("LVM", "lesson notes = " + lessonDetails?.lessonName)
+            }
+            lessonDetails?.lessonName = lessonName
+            lessonDetails?.LessonNotes = lessonNotes
+            //update(lessonDetails)
+        }
+    }
+    *    fun returnNote() : String
+    {
+        return lessonNotes
+    }
+    *    private suspend fun getLessonData(lesson: String): String? {
+        Log.d("TESTING_READ", "inside getLessonData")
+        var data: LessonData? = database.get(lesson)
+        if(data?.LessonNotes != null)
+        {
+            var notes = data.LessonNotes
+            Log.d("TESTING_READ", notes)
+        }
+        Log.d("TESTING_READ", "data should be =  "+data?.LessonNotes)
+        return data?.LessonNotes
+    }
+    *     fun getData(): LessonData? {
+        var data = LessonData()
+        viewModelScope.launch {
+            data = get()
+            Log.d("db check", data.LessonNotes)
+        }
+        return data
+    }
+    *
+    private suspend fun get(): LessonData {
+        return database.getLastLessonDetails()
+    }
+    *
+    private suspend fun update(lesson: LessonData) {
+        database.update(lesson)
+    }
+    *
+    private suspend fun displayLessonData(): LessonData?
+    {
+      val savedLessonData = database.getLastLessonDetails()
+      if(savedLessonData != null)
+      {
+          return savedLessonData
+      }
+        else{
+            return savedLessonData
+      }
+    }
+
+*/

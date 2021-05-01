@@ -6,22 +6,22 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Spinner
-import android.widget.TextView
+import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.map
 import com.sid1722289.schoolhomeorganiser.R
 import com.sid1722289.schoolhomeorganiser.database.DayDatabase
 import com.sid1722289.schoolhomeorganiser.database.ScheduleDatabase
+import com.sid1722289.schoolhomeorganiser.formatSchedule
 import com.sid1722289.schoolhomeorganiser.ui.settings.SettingViewModelFactory
 import com.sid1722289.schoolhomeorganiser.ui.settings.SettingsViewModel
 
 class ScheduleFragment : Fragment() {
 
     private lateinit var scheduleViewModel: ScheduleViewModel
+    private var selectedDay = ""
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,7 +32,8 @@ class ScheduleFragment : Fragment() {
 //            ViewModelProvider(this).get(ScheduleViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_schedule, container, false)
         val textView: TextView = root.findViewById(R.id.text_schedule)
-
+        val checkButton: Button = root.findViewById(R.id.buttonCheck)
+        val displayText: TextView = root.findViewById(R.id.dataDisplay)
 
         val application = requireNotNull(this.activity).application
         val dataSource = ScheduleDatabase.getInstance(application).scheduleDatabaseDao
@@ -55,14 +56,24 @@ class ScheduleFragment : Fragment() {
             }
 
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-
+              selectedDay = daySpinner.selectedItem.toString()
             }
         }
         scheduleViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
+        checkButton.setOnClickListener{
+            if(selectedDay != "")
+            {
+                scheduleViewModel.getDataFromDatabase(selectedDay)
+                Log.d("TEST", scheduleViewModel.scheduleData.size.toString())
+                displayText.text = formatSchedule(scheduleViewModel.scheduleData, application.resources)
+            }
+        }
+
         return root
     }
+
 
 }
 

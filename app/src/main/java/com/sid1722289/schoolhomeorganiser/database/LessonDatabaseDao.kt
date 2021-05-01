@@ -50,7 +50,7 @@ interface ScheduleDatabaseDao {
     suspend fun clear()
 
     @Query("SELECT * FROM schedule_data_table WHERE day = :day")
-    suspend fun getData(day: String) : ScheduleData
+    suspend fun getDataList(day: String) : List<ScheduleData>
 }
 
 @Dao
