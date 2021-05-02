@@ -1,9 +1,6 @@
 package com.sid1722289.schoolhomeorganiser.ui.home
 
-import android.Manifest
 import android.content.Context
-import android.content.pm.PackageManager
-import android.location.LocationManager
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,24 +8,24 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
-import androidx.core.content.ContextCompat.getSystemService
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.sid1722289.schoolhomeorganiser.ApiRequest
 import com.sid1722289.schoolhomeorganiser.R
-import com.sid1722289.schoolhomeorganiser.database.LessonDatabase
 import com.sid1722289.schoolhomeorganiser.database.LocationDatabase
-import com.sid1722289.schoolhomeorganiser.ui.lesson.LessonViewModel
-import com.sid1722289.schoolhomeorganiser.ui.lesson.LessonViewModelFactory
-import com.sid1722289.schoolhomeorganiser.ui.lessonsettings.LessonSettingsFragment
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
-import okhttp3.Request
+import okhttp3.internal.wait
+import retrofit2.Retrofit
+import retrofit2.awaitResponse
+import retrofit2.converter.gson.GsonConverterFactory
+
+const val BASE_WeatherAIP = "https://api.openweathermap.org/data/2.5/"
 
 class HomeFragment : Fragment() {
 
@@ -47,7 +44,7 @@ class HomeFragment : Fragment() {
 
         val application = requireNotNull(this.activity).application
         val dataSource = LocationDatabase.getInstance(application).locationDatabaseDao
-        val viewModelFactory = HomeViewModelFactory(dataSource,application)
+        val viewModelFactory = HomeViewModelFactory(dataSource, application)
         val homeViewModel =
                 ViewModelProvider(
                         this, viewModelFactory).get(HomeViewModel::class.java)
@@ -56,18 +53,44 @@ class HomeFragment : Fragment() {
         Thread.sleep(500)
         var lon = homeViewModel.long
         var lat = homeViewModel.latit
-        Log.d("APITEST", "http://api.openweathermap.org/data/2.5/weather?lat=$lat&lon=$lon&appid=$apiKey")
-        val request = Request.Builder()
+        val api = Retrofit.Builder()
+                .baseUrl(BASE_WeatherAIP)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+                .create(ApiRequest::class.java)
+        GlobalScope.launch(Dispatchers.IO) {
+            val response = api.getWeatherData(lat, lon, apiKey).awaitResponse()
+            Log.d("APITEST", response.isSuccessful.toString())
+            var data = response.body()!!
+            withContext(Dispatchers.Main) {
+                if(data.weather[0].main == "Clouds")
+                {
+                    weatherImage.setImageResource(R.drawable.cloudy)
+                }
+                if(data.weather[0].main == "Clear")
+                {
+                    weatherImage.setImageResource(R.drawable.sunny)
+                }
+                Toast.makeText(activity as Context, "You location is "+data.name, Toast.LENGTH_SHORT).show()
+                Log.d("WEATHER",data.weather[0].main)
+            }
+        }
+
+        /*val request = Request.Builder()
                 .url("https://api.openweathermap.org/data/2.5/weather?lat=$lat&lon=$lon&appid=$apiKey")
                 .build()
         GlobalScope.launch(Dispatchers.IO) {
             val response = client.newCall(request).execute()
             if (response.isSuccessful) {
                 Log.d("APITEST", "PASSED")
+                var data = response.body()
+                val jsonData: String = response.body.toString()
+                Log.d("APITEST", jsonData)
             } else {
                 Log.d("APITEST", "FAILED")
             }
-        }
+        }*/
+
         homeViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
