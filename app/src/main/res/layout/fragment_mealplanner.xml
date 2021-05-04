@@ -68,8 +68,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
-                    android:text="TextView"
-                    android:textColor="#FFFFFF"
+                    android:textColor="@color/white"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -88,9 +87,9 @@
                     android:id="@+id/kcal_card_One"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/white"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="10dp"
-                    android:text="TextView"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/image_card_One" />
 
@@ -100,7 +99,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
                     android:layout_marginTop="10dp"
-                    android:text="TextView"
+                    android:textColor="@color/white"
                     app:layout_constraintStart_toEndOf="@+id/kcal_card_One"
                     app:layout_constraintTop_toBottomOf="@+id/image_card_One" />
 
@@ -110,7 +109,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
                     android:layout_marginTop="10dp"
-                    android:text="TextView"
+                    android:textColor="@color/white"
                     app:layout_constraintStart_toEndOf="@+id/prepTime_card_One"
                     app:layout_constraintTop_toBottomOf="@+id/image_card_One" />
 
@@ -121,7 +120,7 @@
                     android:layout_marginStart="25dp"
                     android:layout_marginTop="23dp"
                     android:layout_marginEnd="20dp"
-                    android:text="TextView"
+                    android:textColor="@color/white"
                     android:textSize="12sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -139,6 +138,7 @@
                 android:background="@drawable/lesson_card"
                 app:layout_constraintBottom_toTopOf="@+id/tilecard_Three"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tilecard_One">
 
@@ -169,7 +169,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="10dp"
-                    android:text="TextView"
+                    android:textColor="@color/white"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/image_card_Two" />
 
@@ -179,7 +179,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
                     android:layout_marginTop="10dp"
-                    android:text="TextView"
+                    android:textColor="@color/white"
                     app:layout_constraintStart_toEndOf="@+id/kcal_card_Two"
                     app:layout_constraintTop_toBottomOf="@+id/image_card_Two" />
 
@@ -189,7 +189,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
                     android:layout_marginTop="10dp"
-                    android:text="TextView"
+                    android:textColor="@color/white"
                     app:layout_constraintStart_toEndOf="@+id/prepTime_card_Two"
                     app:layout_constraintTop_toBottomOf="@+id/image_card_Two" />
 
@@ -200,7 +200,7 @@
                     android:layout_marginStart="25dp"
                     android:layout_marginTop="23dp"
                     android:layout_marginEnd="20dp"
-                    android:text="TextView"
+                    android:textColor="@color/white"
                     android:textSize="12sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -226,8 +226,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
-                    android:text="TextView"
-                    android:textColor="#FFFFFF"
+
+                   android:textColor="@color/white"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -248,7 +248,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="10dp"
-                    android:text="TextView"
+                    android:textColor="@color/white"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/image_card_Three" />
 
@@ -258,7 +258,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
                     android:layout_marginTop="10dp"
-                    android:text="TextView"
+                    android:textColor="@color/white"
                     app:layout_constraintStart_toEndOf="@+id/kcal_card_Three"
                     app:layout_constraintTop_toBottomOf="@+id/image_card_Three" />
 
@@ -268,7 +268,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
                     android:layout_marginTop="10dp"
-                    android:text="TextView"
+                    android:textColor="@color/white"
                     app:layout_constraintStart_toEndOf="@+id/prepTime_card_Three"
                     app:layout_constraintTop_toBottomOf="@+id/image_card_Three" />
 
@@ -279,7 +279,7 @@
                     android:layout_marginStart="25dp"
                     android:layout_marginTop="23dp"
                     android:layout_marginEnd="20dp"
-                    android:text="TextView"
+                    android:textColor="@color/white"
                     android:textSize="12sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -304,8 +304,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
-                    android:text="TextView"
-                    android:textColor="#FFFFFF"
+                    android:textColor="@color/white"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -326,7 +325,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="10dp"
-                    android:text="TextView"
+                    android:textColor="@color/white"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/image_card_Four" />
 
@@ -336,7 +335,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
                     android:layout_marginTop="10dp"
-                    android:text="TextView"
+                    android:textColor="@color/white"
                     app:layout_constraintStart_toEndOf="@+id/kcal_card_Four"
                     app:layout_constraintTop_toBottomOf="@+id/image_card_Four" />
 
@@ -346,7 +345,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
                     android:layout_marginTop="10dp"
-                    android:text="TextView"
+                    android:textColor="@color/white"
                     app:layout_constraintStart_toEndOf="@+id/prepTime_card_Four"
                     app:layout_constraintTop_toBottomOf="@+id/image_card_Four" />
 
@@ -357,7 +356,7 @@
                     android:layout_marginStart="25dp"
                     android:layout_marginTop="23dp"
                     android:layout_marginEnd="20dp"
-                    android:text="TextView"
+                    android:textColor="@color/white"
                     android:textSize="12sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

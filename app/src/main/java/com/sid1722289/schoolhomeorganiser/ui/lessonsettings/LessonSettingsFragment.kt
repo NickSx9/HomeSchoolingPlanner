@@ -1,6 +1,7 @@
 package com.sid1722289.schoolhomeorganiser.ui.lessonsettings
 
 import android.content.Context
+import android.opengl.Visibility
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -17,6 +18,7 @@ import com.sid1722289.schoolhomeorganiser.database.ScheduleDatabase
 import com.sid1722289.schoolhomeorganiser.ui.schedule.ScheduleViewModel
 import com.sid1722289.schoolhomeorganiser.ui.settings.SettingViewModelFactory
 import com.sid1722289.schoolhomeorganiser.ui.settings.SettingsViewModel
+import kotlinx.android.synthetic.main.fragment_lesson_settings.*
 import kotlinx.android.synthetic.main.fragment_settings.*
 
 class LessonSettingsFragment : Fragment() {
@@ -42,6 +44,12 @@ class LessonSettingsFragment : Fragment() {
         val root = inflater.inflate(R.layout.fragment_lesson_settings, container, false)
         val textView: TextView = root.findViewById(R.id.text_Home_Settings)
         var saveButton: Button = root.findViewById(R.id.saveButton)
+
+        var dayLabel: TextView = root.findViewById(R.id.dayLabel)
+        var lessonLabel: TextView = root.findViewById(R.id.lessonLabel)
+        var startLabel: TextView = root.findViewById(R.id.startLabel)
+        var finishLabel: TextView = root.findViewById(R.id.finishLabel)
+
         val application = requireNotNull(this.activity).application
         val dayDataSource = DayDatabase.getInstance(application).dayDatabaseDao
         val scheduleDataSource = ScheduleDatabase.getInstance(application).scheduleDatabaseDao
@@ -95,7 +103,6 @@ class LessonSettingsFragment : Fragment() {
                         override fun onNothingSelected(parent: AdapterView<*>?) {
                             Log.d("Day", "Nothing")
                         }
-
                         override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                             selectedFinishTime = endTimeSpinner.selectedItem.toString()
                         }
@@ -124,6 +131,10 @@ class LessonSettingsFragment : Fragment() {
         }
         else {
             mainText.text = "        No Data Found \nPlease Configure Settings"
+            dayLabel.visibility = View.INVISIBLE
+            lessonLabel.visibility = View.INVISIBLE
+            startLabel.visibility = View.INVISIBLE
+            finishLabel.visibility = View.INVISIBLE
         }
         saveButton.setOnClickListener{
             lessonSettingsViewModel.saveScheduleData(selectedDay,selectedLessonName, selectedStartTime,selectedFinishTime)

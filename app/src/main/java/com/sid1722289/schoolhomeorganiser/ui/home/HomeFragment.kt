@@ -49,8 +49,10 @@ class HomeFragment : Fragment() {
                 ViewModelProvider(
                         this, viewModelFactory).get(HomeViewModel::class.java)
         var weatherImage: ImageView = root.findViewById(R.id.weatherImage)
+        //Pulls the GPS data from the Database and sets it
         homeViewModel.prepData()
         Thread.sleep(500)
+        //assigns the pulled data to lon/lat
         var lon = homeViewModel.long
         var lat = homeViewModel.latit
         val api = Retrofit.Builder()
@@ -61,36 +63,23 @@ class HomeFragment : Fragment() {
         GlobalScope.launch(Dispatchers.IO) {
             val response = api.getWeatherData(lat, lon, apiKey).awaitResponse()
             Log.d("APITEST", response.isSuccessful.toString())
-            var data = response.body()!!
-            withContext(Dispatchers.Main) {
-                if(data.weather[0].main == "Clouds")
-                {
-                    weatherImage.setImageResource(R.drawable.cloudy)
+            if(response.isSuccessful) {
+                var data = response.body()!!
+                withContext(Dispatchers.Main) {
+                    if (data.weather[0].main == "Clouds") {
+                        weatherImage.setImageResource(R.drawable.cloudy)
+                    }
+                    if (data.weather[0].main == "Clear") {
+                        weatherImage.setImageResource(R.drawable.sunny)
+                    }
+                    if (data.weather[0].main == "Rain") {
+                        weatherImage.setImageResource(R.drawable.rainy)
+                    }
+                    Toast.makeText(activity as Context, "You location is " + data.name, Toast.LENGTH_SHORT).show()
+                    Log.d("WEATHER", data.weather[0].main)
                 }
-                if(data.weather[0].main == "Clear")
-                {
-                    weatherImage.setImageResource(R.drawable.sunny)
-                }
-                Toast.makeText(activity as Context, "You location is "+data.name, Toast.LENGTH_SHORT).show()
-                Log.d("WEATHER",data.weather[0].main)
             }
         }
-
-        /*val request = Request.Builder()
-                .url("https://api.openweathermap.org/data/2.5/weather?lat=$lat&lon=$lon&appid=$apiKey")
-                .build()
-        GlobalScope.launch(Dispatchers.IO) {
-            val response = client.newCall(request).execute()
-            if (response.isSuccessful) {
-                Log.d("APITEST", "PASSED")
-                var data = response.body()
-                val jsonData: String = response.body.toString()
-                Log.d("APITEST", jsonData)
-            } else {
-                Log.d("APITEST", "FAILED")
-            }
-        }*/
-
         homeViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })

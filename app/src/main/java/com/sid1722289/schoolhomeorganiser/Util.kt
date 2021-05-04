@@ -13,7 +13,7 @@ import com.sid1722289.schoolhomeorganiser.database.ScheduleData
 fun formatSchedule(data: List<ScheduleData>, resources: Resources): String {
     val sb = StringBuilder()
     sb.apply {
-        append(resources.getString(R.string.title))
+        append(resources.getString(R.string.lessonSchedule))
         data.forEach {
             append(resources.getString(R.string.start_time))
             append("\t${it.LessonStartTime}<br>")

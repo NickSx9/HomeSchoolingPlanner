@@ -141,7 +141,7 @@
     </string-array>
 
     <string name="container_des" translation_description="container for lessons.">Lesson Container</string>
-    <string name="demoText">is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
+    <string name="demoText">Here at School Home Organiser we know that choosing to home educate your child is no small undertaking. And yet, deciding to teach your child at home can be one of the most rewarding decisions you’ll ever make. So much so that, according to the BBC, the number of children being home schooled had risen by 40% in the three years prior to 2018! <br></br> Here at School Home Organiser we like to think we’re the one-stop shop for all your queries and questions about home education. We’ll be your helpful hero and your educational guide, with you every step of the way; from the moment you make the decision to the day your child takes their GCSEs.</string>
     <string name="dayLabel">Day:</string>
     <string name="label_lesson">Lesson:</string>
     <string name="label_startTime">Start Time:</string>
@@ -159,5 +159,19 @@
     <string name="education_text">A collection of educational links have been put together and listed below.</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="start_label">Start:</string>
+    <string name="finish_label">Finish:</string>
+    <string name="ReadNoteButton">Read Notes</string>
+    <string name="addButton">Add</string>
+    <string name="Read">Read</string>
+    <string name="backButton">Back</string>
+    <string name="addLessonNotesLabel">Add Lesson Notes</string>
+    <string name="addNotesButton">Add Notes</string>
+    <string name="weatherIcon">Image that changes depending on weather</string>
+    <string name="checkButton">Check</string>
+    <string name="other">other</string>
+    <string name="selectDay">Select a Day</string>
+
+    <string name="lessonSchedule">Schedule Information</string>
 
 </resources>

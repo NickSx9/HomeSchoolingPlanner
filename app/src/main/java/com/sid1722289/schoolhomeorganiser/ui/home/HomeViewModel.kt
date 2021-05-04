@@ -9,8 +9,8 @@ import kotlinx.coroutines.launch
 
 class HomeViewModel(val database: LocationDatabaseDao,
                     application: Application) : AndroidViewModel(application) {
-    lateinit var long: String
-    lateinit var latit: String
+    var long: String = ""
+    var latit: String = ""
 
     private val _text = MutableLiveData<String>().apply {
         value = "Home Schooling"
