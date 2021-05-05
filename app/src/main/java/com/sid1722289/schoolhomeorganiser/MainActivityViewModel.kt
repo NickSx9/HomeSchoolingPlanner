@@ -14,7 +14,6 @@ class MainActivityViewModel(app: Application): AndroidViewModel(app) {
 
     }
     fun insertGpsData(gpsLocation: GPSLocation) {
-
         viewModelScope.launch {
             insert(gpsLocation)
         }

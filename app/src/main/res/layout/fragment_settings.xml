@@ -62,9 +62,11 @@
             android:id="@+id/text_labelDay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="30dp"
+            android:layout_marginEnd="20dp"
             android:text="@string/dayLabel"
+            android:textColor="@color/white"
             android:textSize="20sp"
             app:layout_constraintEnd_toStartOf="@+id/daySpinner"
             app:layout_constraintStart_toStartOf="parent"
@@ -72,42 +74,46 @@
 
         <Spinner
             android:id="@+id/daySpinner"
-            android:background="@drawable/dropdown_settings"
-            android:layout_marginEnd="10dp"
             android:layout_width="210dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="75dp"
             android:layout_marginTop="20dp"
+            android:background="@drawable/dropdown_settings"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textSettings_Title" />
 
         <Spinner
             android:id="@+id/lessonSelectSpinner"
             android:layout_width="210dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="75dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
             android:background="@drawable/dropdown_settings"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/daySpinner" />
 
         <Spinner
             android:id="@+id/StartTimeSpinner"
-            android:background="@drawable/dropdown_settings"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
             android:layout_width="210dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="75dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/dropdown_settings"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/lessonSelectSpinner" />
 
         <Spinner
             android:id="@+id/EndTimeSpinner"
-            android:background="@drawable/dropdown_settings"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
             android:layout_width="210dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="75dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/dropdown_settings"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/StartTimeSpinner" />
 
         <Button
@@ -125,7 +131,9 @@
             android:id="@+id/tv_LabelLesson"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="35dp"
+            android:layout_marginEnd="20dp"
             android:text="@string/label_startTime"
             android:textColor="@color/white"
             android:textSize="20sp"
@@ -137,7 +145,9 @@
             android:id="@+id/tv_StartTimeLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="28dp"
+            android:layout_marginEnd="20dp"
             android:text="@string/label_endTime"
             android:textColor="@color/white"
             android:textSize="20sp"
@@ -149,7 +159,9 @@
             android:id="@+id/tv_EndTimeLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="30dp"
+            android:layout_marginEnd="20dp"
             android:text="@string/label_breakTime"
             android:textColor="@color/white"
             android:textSize="20sp"

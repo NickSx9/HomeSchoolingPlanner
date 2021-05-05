@@ -172,6 +172,6 @@
     <string name="other">other</string>
     <string name="selectDay">Select a Day</string>
 
-    <string name="lessonSchedule">Schedule Information</string>
+    <string name="lessonSchedule"><![CDATA[<h1>Schedule Information</h1><br>]]></string>
 
 </resources>

@@ -15,13 +15,13 @@
         android:id="@+id/nav_lesson"
         android:name="com.sid1722289.schoolhomeorganiser.ui.lesson.LessonFragment"
         android:label="@string/menu_lesson"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_lesson" />
 
     <fragment
         android:id="@+id/nav_mealPlanner"
         android:name="com.sid1722289.schoolhomeorganiser.ui.mealplanner.MealPlannerFragment"
         android:label="@string/menu_meal_planner"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_mealplanner" />
     <fragment
         android:id="@+id/nav_schedule"
         android:name="com.sid1722289.schoolhomeorganiser.ui.schedule.ScheduleFragment"
