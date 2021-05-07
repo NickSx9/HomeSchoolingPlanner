@@ -29,7 +29,7 @@ const val BASE_WeatherAIP = "https://api.openweathermap.org/data/2.5/"
 
 class HomeFragment : Fragment() {
 
-    private val apiKey: String = "b05cca29b43d096876f818942d9da9e0"
+    private val apiKey: String = "=apiKey="
 
     override fun onCreateView(
             inflater: LayoutInflater,
