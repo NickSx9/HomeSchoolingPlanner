@@ -17,36 +17,26 @@ import com.sid1722289.schoolhomeorganiser.ui.lesson.LessonViewModel
 import com.sid1722289.schoolhomeorganiser.ui.lesson.LessonViewModelFactory
 
 class SettingsFragment : Fragment() {
-//    private lateinit var settingsViewModel: SettingsViewModel
     var selectedDay = ""
     var selectedStart = ""
     var selectedEnd = ""
     var selectedBreak = ""
-
-
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-//        settingsViewModel =
-//                ViewModelProvider(this).get(SettingsViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_settings, container, false)
-        //can be moved into a fun ?
         val application = requireNotNull(this.activity).application
         val dataSource = DayDatabase.getInstance(application).dayDatabaseDao
         val viewModelFactory = SettingViewModelFactory(dataSource,application)
         val settingsViewModel =
                 ViewModelProvider(
                         this, viewModelFactory).get(SettingsViewModel::class.java)
-
-        //labels
         val startTimeLabel: TextView = root.findViewById(R.id.tv_LabelLesson)
         val endTimeLabel: TextView = root.findViewById(R.id.tv_StartTimeLabel)
         val breakTimeLabel: TextView = root.findViewById(R.id.tv_EndTimeLabel)
-        //Button
         val button: Button = root.findViewById(R.id.saveButton)
-
         button.visibility = View.INVISIBLE
         startTimeLabel.visibility = View.INVISIBLE
         endTimeLabel.visibility = View.INVISIBLE
@@ -66,7 +56,6 @@ class SettingsFragment : Fragment() {
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 Log.d("Day", "Nothing")
             }
-
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 if (daySpinner.selectedItem.toString() != "- Select Day -") {
                     startTimeLabel.visibility = View.VISIBLE
@@ -201,18 +190,3 @@ class SettingsFragment : Fragment() {
         }
     }
 }
-
-
-
-
-// val appFab = inflater.inflate(R.layout.app_bar_main, container, false)
-// val fab: FloatingActionButton = appFab.findViewById(R.id.fab)
-// fab.visibility = View.GONE
-// fab.setOnClickListener() {
-//     Toast.makeText(activity as Context , "ON THIS PAGE", Toast.LENGTH_SHORT).show()
-// }
-//selectedDay = daySpinner.selectedItem.toString()
-//selectedLesson = lessonSpinner.selectedItem.toString()
-//selectedLesson = lessonSpinner.selectedItem.toString()
-//selectedStart = endTimeSpinner.selectedItem.toString()
-//Dropdown menu for day selection

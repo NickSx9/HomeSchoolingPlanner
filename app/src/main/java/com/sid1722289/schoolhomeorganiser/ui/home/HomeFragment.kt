@@ -29,8 +29,6 @@ const val BASE_WeatherAIP = "https://api.openweathermap.org/data/2.5/"
 
 class HomeFragment : Fragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
-    val client = OkHttpClient()
     private val apiKey: String = "b05cca29b43d096876f818942d9da9e0"
 
     override fun onCreateView(
@@ -41,7 +39,6 @@ class HomeFragment : Fragment() {
 
         val root = inflater.inflate(R.layout.fragment_home, container, false)
         val textView: TextView = root.findViewById(R.id.text_Home_Settings)
-
         val application = requireNotNull(this.activity).application
         val dataSource = LocationDatabase.getInstance(application).locationDatabaseDao
         val viewModelFactory = HomeViewModelFactory(dataSource, application)

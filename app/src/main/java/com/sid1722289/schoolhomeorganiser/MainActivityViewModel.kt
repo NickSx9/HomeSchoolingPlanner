@@ -11,13 +11,11 @@ import kotlinx.coroutines.launch
 class MainActivityViewModel(app: Application): AndroidViewModel(app) {
     val locationDBDao = LocationDatabase.getInstance(getApplication()).locationDatabaseDao
     init{
-
     }
     fun insertGpsData(gpsLocation: GPSLocation) {
         viewModelScope.launch {
             insert(gpsLocation)
         }
-
     }
     private suspend fun insert(gpsLocation: GPSLocation){
         locationDBDao.insert(gpsLocation)

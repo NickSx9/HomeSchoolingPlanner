@@ -28,9 +28,6 @@ class LessonFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_lesson, container, false)
-        /*
-        the four lines below are required to link this class to the methods in the view model.
-        */
         val textView: TextView = root.findViewById(R.id.text_LessonPage)
         textView.text = "Home Schooling"
         val application = requireNotNull(this.activity).application
@@ -40,7 +37,6 @@ class LessonFragment : Fragment() {
             ViewModelProvider(
                 this, viewModelFactory).get(LessonViewModel::class.java)
         var selectedLessonName: String = ""
-        //hide all the options here
         val addlessonText: TextView = root.findViewById(R.id.lessonText)
         val lessonSpinner: Spinner = root.findViewById(R.id.lessonSpinner)
         val addButton: Button = root.findViewById(R.id.buttonAdd)
@@ -48,7 +44,6 @@ class LessonFragment : Fragment() {
         val readButton: Button = root.findViewById(R.id.buttonRead)
         val lessonNotes: TextView = root.findViewById(R.id.lessonNotes)
         val backButton: Button = root.findViewById(R.id.backButton)
-
         readButton.text = "Read"
         addlessonText.visibility = View.INVISIBLE
         lessonSpinner.visibility = View.INVISIBLE
@@ -57,10 +52,8 @@ class LessonFragment : Fragment() {
         inputBox.visibility = View.INVISIBLE
         lessonNotes.visibility = View.INVISIBLE
         backButton.visibility = View.INVISIBLE
-
         val addNotes: Button = root.findViewById(R.id.buttonAddNotes)
         val readNotes: Button = root.findViewById(R.id.buttonReadNotes)
-
         readNotes.setOnClickListener { view ->
             addNotes.visibility = View.INVISIBLE
             readNotes.visibility = View.INVISIBLE
@@ -68,7 +61,6 @@ class LessonFragment : Fragment() {
             lessonSpinner.visibility = View.VISIBLE
             readButton.visibility = View.VISIBLE
             backButton.visibility = View.VISIBLE
-
             addlessonText.text = "Read Lesson Notes"
             inputBox.apply {
                 isFocusable = false
@@ -136,14 +128,8 @@ class LessonFragment : Fragment() {
             backButton.visibility = View.INVISIBLE
             addNotes.visibility = View.VISIBLE
             readNotes.visibility = View.VISIBLE
-
         }
         return root
     }
 }
-
-//                var data = lessonViewModel.getData()
-////                Log.d(data)
-////                Log.d(data)
-//                //Toast.makeText(activity as Context, data?.lessonName , Toast.LENGTH_SHORT).show()
-//                //lessonViewModel.addNotesToDatabase(selectedLessonName,inputBox.editText.toString())
+               //lessonViewModel.addNotesToDatabase(selectedLessonName,inputBox.editText.toString())

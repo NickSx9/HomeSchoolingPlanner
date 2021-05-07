@@ -20,7 +20,6 @@ import com.sid1722289.schoolhomeorganiser.R
 class EducateLinksFragment : Fragment() {
 
     private lateinit var educateLinksViewModel : EducateLinksViewModel
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -34,17 +33,14 @@ class EducateLinksFragment : Fragment() {
             textView.text = it
         })
         val openURL = Intent(Intent.ACTION_VIEW)
-
         val byteSize: Button = root.findViewById(R.id.buttonOne)
         val twinkl: Button = root.findViewById(R.id.buttonTwo)
         val myTutor: Button = root.findViewById(R.id.buttonThree)
         val tedEd: Button = root.findViewById(R.id.buttonFour)
-
         val workSheet: Button = root.findViewById(R.id.buttonFive)
         val schoolRun: Button = root.findViewById(R.id.buttonSix)
         val otherTwo: Button = root.findViewById(R.id.buttonSeven)
         val otherThree: Button = root.findViewById(R.id.buttonEight)
-
         byteSize.setOnClickListener {
             openURL.data = Uri.parse("https://www.bbc.co.uk/bitesize")
             startActivity(openURL)
@@ -69,7 +65,6 @@ class EducateLinksFragment : Fragment() {
             openURL.data = Uri.parse("https://www.theschoolrun.com/")
             startActivity(openURL)
         }
-
         return root
     }
 }

@@ -27,7 +27,6 @@ const val BASE_URL = "https://api.jsonbin.io/"
 
 class MealPlannerFragment : Fragment() {
 
-    private var TAG = "MealPlannerFragmentView"
     private lateinit var mealPlannerViewModel: MealPlannerViewModel
 
     override fun onCreateView(
@@ -45,8 +44,6 @@ class MealPlannerFragment : Fragment() {
         try{
             val progressBar: ProgressBar = root.findViewById(R.id.progressBar)
                 progressBar.visibility = View.VISIBLE
-
-
             // Tile One
             val oneImage: ImageView = root.findViewById(R.id.image_card_One)
             val oneTitle: TextView = root.findViewById(R.id.tv_card_One)
@@ -75,7 +72,6 @@ class MealPlannerFragment : Fragment() {
             val fourPrep: TextView = root.findViewById(R.id.prepTime_card_Four)
             val fourCookTime: TextView = root.findViewById(R.id.cookingTime_card_Four)
             val fourStageOne: TextView = root.findViewById(R.id.stageOne_CardFour)
-
             val api = Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -101,7 +97,6 @@ class MealPlannerFragment : Fragment() {
                             one += data.ingredient + "\n"
                         }
                         oneStageOne.text = one
-
                         //tile two
                         twoImage.setImageResource(R.drawable.veggie_chilli)
                         twoTitle.text = data[1].title
@@ -112,7 +107,6 @@ class MealPlannerFragment : Fragment() {
                             two += data.ingredient + "\n"
                         }
                         twoStageOne.text = two
-
                         //tile three
                         threeImage.setImageResource(R.drawable.chicken_skewers)
                         threeTitle.text = data[2].title
@@ -123,7 +117,6 @@ class MealPlannerFragment : Fragment() {
                             three += data.ingredient + "\n"
                         }
                         threeStageOne.text = three
-
                         //tile four
                         fourImage.setImageResource(R.drawable.bbq_chicken_pizza)
                         fourTitle.text = data[3].title

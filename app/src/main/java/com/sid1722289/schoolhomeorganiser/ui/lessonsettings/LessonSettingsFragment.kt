@@ -26,10 +26,8 @@ class LessonSettingsFragment : Fragment() {
     var dataBaseDay: ArrayList<String> = ArrayList()
     var dataBaseStartTime: ArrayList<String> = ArrayList()
     var dataBaseFinishTime: ArrayList<String> = ArrayList()
-
     var displayStartTime: ArrayList<String> = ArrayList()
     var displayFinishTime: ArrayList<String> = ArrayList()
-
     lateinit var selectedDay: String
     lateinit var selectedLessonName: String
     lateinit var selectedStartTime: String

@@ -12,6 +12,7 @@ interface ApiRequest {
     fun getMealData(): Call<MealPlan>
 
     @GET("weather?")
-    fun getWeatherData(@Query(value = "lat") lat: String, @Query(value = "lon") lon: String, @Query(value = "appid") apiKey: String ): Call<weatherResponse>
+    fun getWeatherData(@Query(value = "lat") lat: String, @Query(value = "lon") lon: String,
+                       @Query(value = "appid") apiKey: String ): Call<weatherResponse>
 
 }

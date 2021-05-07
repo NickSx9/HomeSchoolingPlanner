@@ -47,7 +47,6 @@ class SettingsViewModel(val database: DayDatabaseDao,
             database.updateDay(day, startTime, finishTime)
         }
     }
-
     private fun initializeDatabase() {
         viewModelScope.launch {
             clear()
@@ -56,13 +55,11 @@ class SettingsViewModel(val database: DayDatabaseDao,
             val wednesday = DayData()
             val thursday = DayData()
             val friday = DayData()
-
             monday.Day = "Monday"
             tuesday.Day = "Tuesday"
             wednesday.Day = "Wednesday"
             thursday.Day = "Thursday"
             friday.Day = "Friday"
-
             insert(monday)
             insert(tuesday)
             insert(wednesday)

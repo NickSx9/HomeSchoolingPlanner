@@ -34,17 +34,13 @@ import java.util.*
 
 
 class MainActivity : AppCompatActivity(), AppNavigator {
-
     private lateinit var appBarConfiguration: AppBarConfiguration
     private var PERMISSION_ID = 11
     lateinit var lm: LocationManager
     lateinit var viewModel: MainActivityViewModel
-
     var longitude: String = ""
     var latitude: String = ""
-
     private var permissions = arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION, android.Manifest.permission.ACCESS_COARSE_LOCATION)
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -74,7 +70,6 @@ class MainActivity : AppCompatActivity(), AppNavigator {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
-
     private fun reverseGeocode(loc: Location?) {
         var gc = Geocoder(this, Locale.UK)
         var addresses =gc.getFromLocation(loc!!.latitude, loc.longitude, 2)
@@ -84,19 +79,15 @@ class MainActivity : AppCompatActivity(), AppNavigator {
         var gpsLocation = GPSLocation(Latitude = address.latitude.toString(), Longitude = address.longitude.toString())
         viewModel.insertGpsData(gpsLocation)
     }
-
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.main, menu)
         return true
     }
-
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
-
     override fun navigateToLessonSettings() {
-
     }
 }

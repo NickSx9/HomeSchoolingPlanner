@@ -20,7 +20,6 @@ import com.sid1722289.schoolhomeorganiser.ui.settings.SettingsViewModel
 
 class ScheduleFragment : Fragment() {
 
-    private lateinit var scheduleViewModel: ScheduleViewModel
     private var selectedDay = ""
 
     override fun onCreateView(
@@ -28,8 +27,6 @@ class ScheduleFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-//        scheduleViewModel =
-//            ViewModelProvider(this).get(ScheduleViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_schedule, container, false)
         val textView: TextView = root.findViewById(R.id.text_schedule)
         val checkButton: Button = root.findViewById(R.id.buttonCheck)
@@ -41,7 +38,6 @@ class ScheduleFragment : Fragment() {
         val scheduleViewModel =
                 ViewModelProvider(
                         this, viewModelFactory).get(ScheduleViewModel::class.java)
-        // set up spinner
         val daySpinner: Spinner = root.findViewById(R.id.dayScheduleSpinner)
         ArrayAdapter.createFromResource(
                 activity as Context,
@@ -54,7 +50,6 @@ class ScheduleFragment : Fragment() {
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 Log.d("Day", "Nothing")
             }
-
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
               selectedDay = daySpinner.selectedItem.toString()
             }
@@ -70,11 +65,8 @@ class ScheduleFragment : Fragment() {
                 displayText.text = formatSchedule(scheduleViewModel.scheduleData, application.resources)
             }
         }
-
         return root
     }
-
-
 }
 
 
